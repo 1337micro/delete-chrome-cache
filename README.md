@@ -1,7 +1,7 @@
 # obliterate-chrome-cache
 Instructions: 
 
-1) git clone https://github.com/zeroRooter/obliterate-chrome-cache.git
+1) git clone https://github.com/1337micro/obliterate-chrome-cache.git
 
 
 2) cd obliterate-chrome-cache
