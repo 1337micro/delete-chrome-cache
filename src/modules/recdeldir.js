@@ -3,8 +3,13 @@ function recursiveDeleteDir(sPath) {
   //path is the nodejs library
   const path = require('path');
   const fs = require('fs');
+  /*
+const dirContainsOnlyEmptyDirectories = (sPath) => {
+    fs.readdir(sPath, (err, aFiles) => {
+    });
+}
+*/
   fs.readdir(sPath, (err, aFiles) => {
-
                         aFiles.forEach((curr, index) => {
                           let absFilePath = path.join(sPath, curr);
                           const oFileStats = fs.statSync(absFilePath);

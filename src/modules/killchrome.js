@@ -1,5 +1,6 @@
 import {tasklist} from "./tasklist.js";
 const process = require('process');
+
 function killchrome(){
 
   const parseTasklist = (sTasks) => {
@@ -12,24 +13,27 @@ function killchrome(){
     return aPids;
   }
 
-  const checkIfKilled = () => {
-    //end
-    let result = true;
-    setTimeout( () => { if (parseTasklist(tasklist()).includes("chrome")) result = false }, 2000 )
-    return result;
-  }
-
-  let aPids = parseTasklist(tasklist());
-  aPids.forEach((curr, i, aPids) =>
-  {
-    if(curr)
-      process.kill(curr);
-   });
-
-   while (checkIfKilled() == false){
-     console.log("killing chrome instances...")
+  const kill = (resolve, reject) => {
+   console.log("killing chrome instances.")
+   let aPids = parseTasklist(tasklist());
+   aPids.forEach((curr, i, aPids) =>
+   {
+     if(curr)
+       process.kill(curr);
+    });
    }
 
+   const checkIfKilled = () => {
+     let result = true;
+     if (parseTasklist(tasklist()).includes("chrome"))
+       result = false;
+     return result;
+   }
+
+   return new Promise(function(resolve, reject){
+                      kill()
+                      setTimeout(() => checkIfKilled ? resolve() : reject(), 3000);
+                    });
 }
 
 export {killchrome as killchrome};
