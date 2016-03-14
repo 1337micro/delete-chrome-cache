@@ -7,7 +7,10 @@ Instructions:
 2) cd obliterate-chrome-cache
 
 
-3) node lib\app.js
+3) npm install
+
+
+4) node lib\app.js
 
 Pre-requisites:
 nodejs
