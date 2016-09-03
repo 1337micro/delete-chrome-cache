@@ -1,4 +1,6 @@
-# obliterate-chrome-cache
+# delete-chrome-cache
+DELETE ALL CHROME USER DATA FILES on windows.
+
 Instructions: 
 
 1) git clone https://github.com/1337micro/obliterate-chrome-cache.git
